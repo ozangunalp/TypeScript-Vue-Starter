@@ -22,18 +22,10 @@
     count!: number;
 
     @Mutation('increment', {namespace: 'counter'})
-    incrementCounter: any;
+    increment!: () => void;
 
     @Mutation('decrement', {namespace: 'counter'})
-    decrementCounter: any;
-
-    increment() {
-      this.incrementCounter();
-    }
-
-    decrement() {
-      this.decrementCounter();
-    }
+    decrement!: () => void;
 
     get exclamationMarks(): string {
       return Array(this.count + 1).join('!');

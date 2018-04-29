@@ -15,7 +15,7 @@
     nameSouscripteur!: string;
 
     @Mutation('updateNameSouscripteur', {namespace: 'questionset'})
-    updateName: any;
+    updateName!: (name: string) => void;
 
     get sourcipteurName(): string {
       return this.nameSouscripteur;
