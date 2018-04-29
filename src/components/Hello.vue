@@ -11,7 +11,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-    props: ['name', 'initialEnthusiasm'],
+    props: ['initialEnthusiasm'],
     data() {
         return {
             enthusiasm: this.initialEnthusiasm,
@@ -28,6 +28,9 @@ export default Vue.extend({
     computed: {
         exclamationMarks(): string {
             return Array(this.enthusiasm + 1).join('!');
+        },
+        name(): string {
+          return this.$store.state.questionset.nameSouscripteur;
         }
     }
 });

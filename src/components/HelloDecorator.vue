@@ -2,39 +2,52 @@
 <!-- This is an alternative way to define the Hello component using decorators -->
 <template>
     <div>
-        <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
+        <div class="greeting">Hello {{souscripteurName}}{{exclamationMarks}}</div>
         <button @click="decrement">-</button>
         <button @click="increment">+</button>
     </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+  import {Component, Vue} from "vue-property-decorator";
+  import {Mutation, State} from "vuex-class";
 
-@Component
-export default class HelloDecorator extends Vue {
-    @Prop() name!: string;
-    @Prop() initialEnthusiasm!: number;
+  @Component
+  export default class HelloDecorator extends Vue {
 
-    enthusiasm = this.initialEnthusiasm;
+    @State('nameSouscripteur', {namespace: 'questionset'})
+    nameSouscripteur!: string;
+
+    @State('count', {namespace: 'counter'})
+    count!: number;
+
+    @Mutation('increment', {namespace: 'counter'})
+    incrementCounter: any;
+
+    @Mutation('decrement', {namespace: 'counter'})
+    decrementCounter: any;
 
     increment() {
-        this.enthusiasm++;
+      this.incrementCounter();
     }
+
     decrement() {
-        if (this.enthusiasm > 1) {
-            this.enthusiasm--;
-        }
+      this.decrementCounter();
     }
 
     get exclamationMarks(): string {
-        return Array(this.enthusiasm + 1).join('!');
+      return Array(this.count + 1).join('!');
     }
-}
+
+    get souscripteurName(): string {
+      return this.nameSouscripteur;
+    }
+
+  }
 </script>
 
 <style scoped lang="less">
-.greeting {
-    font-size: 40px;
-}
+    .greeting {
+        font-size: 20px;
+    }
 </style>

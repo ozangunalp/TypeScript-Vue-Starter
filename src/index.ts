@@ -1,21 +1,26 @@
 import Vue from "vue";
 import HelloComponent from "./components/Hello.vue";
 import HelloDecoratorComponent from "./components/HelloDecorator.vue";
+import NameComponent from "./components/Name.vue";
+import store from "./store/root";
+// import 'es6-promise/auto'
 
 let v = new Vue({
-    el: "#app",
-    template: `
+  el: "#app",
+  store,
+  template: `
     <div>
-        Name: <input v-model="name" type="text">
+        <h1>Name</h1>
+        <name-component />
         <h1>Hello Component</h1>
-        <hello-component :name="name" :initialEnthusiasm="5" />
+        <hello-component :initialEnthusiasm="5" />
         <h1>Hello Decorator Component</h1>
-        <hello-decorator-component :name="name" :initialEnthusiasm="5" />
+        <hello-decorator-component :initialEnthusiasm="5" />
         </div>
     `,
-    data: { name: "World" },
-    components: {
-        HelloComponent,
-        HelloDecoratorComponent
-    }
+  components: {
+    NameComponent,
+    HelloComponent,
+    HelloDecoratorComponent
+  }
 });
