@@ -10,21 +10,22 @@
 
 <script lang="ts">
   import {Component, Vue} from "vue-property-decorator";
-  import {Mutation, State} from "vuex-class";
+  import {QuestionSetState} from "../store/modules/questionset";
+  import {CounterMutation, CounterState} from "../store/modules/counter";
 
   @Component
   export default class HelloDecorator extends Vue {
 
-    @State('nameSouscripteur', {namespace: 'questionset'})
+    @QuestionSetState
     nameSouscripteur!: string;
 
-    @State('count', {namespace: 'counter'})
+    @CounterState
     count!: number;
 
-    @Mutation('increment', {namespace: 'counter'})
+    @CounterMutation
     increment!: () => void;
 
-    @Mutation('decrement', {namespace: 'counter'})
+    @CounterMutation
     decrement!: () => void;
 
     get exclamationMarks(): string {

@@ -6,15 +6,15 @@
 
 <script lang="ts">
   import {Component, Vue} from "vue-property-decorator";
-  import {Mutation, State} from "vuex-class";
+  import {QuestionSetMutation, QuestionSetState} from "../store/modules/questionset";
 
   @Component
   export default class Name extends Vue {
 
-    @State('nameSouscripteur', {namespace: 'questionset'})
+    @QuestionSetState
     nameSouscripteur!: string;
 
-    @Mutation('updateNameSouscripteur', {namespace: 'questionset'})
+    @QuestionSetMutation('updateNameSouscripteur')
     updateName!: (name: string) => void;
 
     get sourcipteurName(): string {

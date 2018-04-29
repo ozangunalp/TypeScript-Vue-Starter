@@ -1,6 +1,10 @@
 import QuestionSet from "../../types/QuestionSet";
 import {Module, MutationTree} from "vuex";
 import RootState from "../../types/RootState";
+import {Mutation, namespace, State} from "vuex-class";
+
+export const QuestionSetMutation = namespace('questionset', Mutation);
+export const QuestionSetState = namespace('questionset', State);
 
 export const state : QuestionSet = {
   acceptSwitching: undefined,

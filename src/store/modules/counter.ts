@@ -1,6 +1,11 @@
 import Counter from "../../types/Counter";
 import RootState from "../../types/RootState";
 import {Module, MutationTree} from "vuex";
+import {Getter, Mutation, namespace, State} from "vuex-class";
+
+export const CounterMutation = namespace('counter', Mutation);
+export const CounterState = namespace('counter', State);
+export const CounterGetter = namespace('counter', Getter);
 
 export const state : Counter = {
   count: 1,
