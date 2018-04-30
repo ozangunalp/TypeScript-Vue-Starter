@@ -1,15 +1,20 @@
 <template>
     <div>
         <input v-model=sourcipteurName type="text">
+        <span>Clicked {{decrementCount}} times on "-"</span>
     </div>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from "vue-property-decorator";
   import {QuestionSetMutation, QuestionSetState} from "../store/modules/questionset";
+  import {CounterState} from "../store/modules/counter";
 
   @Component
   export default class Name extends Vue {
+
+    @CounterState
+    decrementCount!: number;
 
     @QuestionSetState
     nameSouscripteur!: string;

@@ -9,6 +9,7 @@ export const CounterGetter = namespace('counter', Getter);
 
 export const state : Counter = {
   count: 1,
+  decrementCount: 0
 };
 
 export const mutations :MutationTree<Counter> = {
@@ -21,6 +22,9 @@ export const mutations :MutationTree<Counter> = {
     if (state.count > 1) {
       state.count--
     }
+  },
+  decrementCountIncrement(state: Counter) {
+    state.decrementCount++
   }
 };
 

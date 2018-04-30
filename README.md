@@ -484,3 +484,49 @@ Once you feel like you've got a handle on that, you can try out a sample [TodoMV
 This TodoMVC-style sample features routing through [vue-router](https://github.com/vuejs/vue-router) so that your application can show different views depending on the current URL.
 
 You may also want to look into [Vuex](https://github.com/vuejs/vuex) if you're looking for [Redux](http://redux.js.org/)-style state management.
+
+
+# References
+
+https://github.com/Microsoft/TypeScript-Vue-Starter
+
+https://github.com/ryutamaki/vue-template-webpack-typescript
+
+https://medium.com/the-vue-point/upcoming-typescript-changes-in-vue-2-5-e9bd7e2ecf08
+
+https://github.com/webpack-contrib/less-loader
+
+https://github.com/vuejs/vue-style-loader
+
+https://vue-loader.vuejs.org/
+
+https://medium.com/@nupoor_neha/starting-with-webpack-4-and-vuejs-a-quick-start-tutorial-4a244410d55e
+
+https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a
+
+https://webpack.js.org/configuration/configuration-types/#exporting-a-function
+
+https://webpack.js.org/concepts/hot-module-replacement/
+
+https://github.com/webpack/webpack-dev-server
+
+https://github.com/kaorun343/vue-property-decorator
+
+https://github.com/vuejs/vue-class-component
+
+https://vuejs.org/v2/guide/typescript.html
+
+https://github.com/vuejs/vuex
+
+https://vuex.vuejs.org/en/structure.html
+
+https://slides.maxpou.fr/vuejs-training/_book/
+
+https://github.com/ktsn/vuex-class
+
+https://vuejs.org/v2/guide/components-custom-events.html#Customizing-Component-v-model
+
+https://github.com/vuejs/vue-class-component/issues/56
+
+https://www.typescriptlang.org/docs/handbook/modules.html
+

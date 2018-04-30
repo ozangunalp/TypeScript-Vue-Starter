@@ -3,7 +3,7 @@
 <template>
     <div>
         <div class="greeting">Hello {{souscripteurName}}{{exclamationMarks}}</div>
-        <button @click="decrement">-</button>
+        <button @click="decrementCounters">-</button>
         <button @click="increment">+</button>
     </div>
 </template>
@@ -28,12 +28,20 @@
     @CounterMutation
     decrement!: () => void;
 
+    @CounterMutation
+    decrementCountIncrement!: () => void;
+
     get exclamationMarks(): string {
       return Array(this.count + 1).join('!');
     }
 
     get souscripteurName(): string {
       return this.nameSouscripteur;
+    }
+
+    decrementCounters() {
+      this.decrement();
+      this.decrementCountIncrement();
     }
 
   }
