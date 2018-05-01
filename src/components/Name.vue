@@ -6,28 +6,24 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from "vue-property-decorator";
-  import {QuestionSetMutation, QuestionSetState} from "../store/modules/questionset";
-  import {CounterState} from "../store/modules/counter";
+import { Component, Vue } from 'vue-property-decorator';
+import { QuestionSetMutation, QuestionSetState } from '../store/modules/questionset';
+import { CounterState } from '../store/modules/counter';
 
-  @Component
-  export default class Name extends Vue {
+@Component
+export default class Name extends Vue {
+  @CounterState decrementCount!: number;
 
-    @CounterState
-    decrementCount!: number;
+  @QuestionSetState nameSouscripteur!: string;
 
-    @QuestionSetState
-    nameSouscripteur!: string;
+  @QuestionSetMutation('updateNameSouscripteur') updateName!: (name: string) => void;
 
-    @QuestionSetMutation('updateNameSouscripteur')
-    updateName!: (name: string) => void;
-
-    get sourcipteurName(): string {
-      return this.nameSouscripteur;
-    }
-
-    set sourcipteurName(name: string) {
-      this.updateName(name);
-    }
+  get sourcipteurName(): string {
+    return this.nameSouscripteur;
   }
+
+  set sourcipteurName(name: string) {
+    this.updateName(name);
+  }
+}
 </script>

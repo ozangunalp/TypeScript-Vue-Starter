@@ -9,46 +9,39 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from "vue-property-decorator";
-  import {QuestionSetState} from "../store/modules/questionset";
-  import {CounterMutation, CounterState} from "../store/modules/counter";
+import { Component, Vue } from 'vue-property-decorator';
+import { QuestionSetState } from '../store/modules/questionset';
+import { CounterMutation, CounterState } from '../store/modules/counter';
 
-  @Component
-  export default class HelloDecorator extends Vue {
+@Component
+export default class HelloDecorator extends Vue {
+  @QuestionSetState nameSouscripteur!: string;
 
-    @QuestionSetState
-    nameSouscripteur!: string;
+  @CounterState count!: number;
 
-    @CounterState
-    count!: number;
+  @CounterMutation increment!: () => void;
 
-    @CounterMutation
-    increment!: () => void;
+  @CounterMutation decrement!: () => void;
 
-    @CounterMutation
-    decrement!: () => void;
+  @CounterMutation decrementCountIncrement!: () => void;
 
-    @CounterMutation
-    decrementCountIncrement!: () => void;
-
-    get exclamationMarks(): string {
-      return Array(this.count + 1).join('!');
-    }
-
-    get souscripteurName(): string {
-      return this.nameSouscripteur;
-    }
-
-    decrementCounters() {
-      this.decrement();
-      this.decrementCountIncrement();
-    }
-
+  get exclamationMarks(): string {
+    return Array(this.count + 1).join('!');
   }
+
+  get souscripteurName(): string {
+    return this.nameSouscripteur;
+  }
+
+  decrementCounters() {
+    this.decrement();
+    this.decrementCountIncrement();
+  }
+}
 </script>
 
 <style scoped lang="less">
-    .greeting {
-        font-size: 20px;
-    }
+.greeting {
+  font-size: 20px;
+}
 </style>

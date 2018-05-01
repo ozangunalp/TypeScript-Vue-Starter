@@ -1,28 +1,28 @@
-const {VueLoaderPlugin} = require('vue-loader');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const { VueLoaderPlugin } = require('vue-loader');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = (env, argv) => ({
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'build.js',
   },
   plugins: [
     new VueLoaderPlugin(),
     // for migration
     new webpack.LoaderOptionsPlugin({
-      minimize: argv.mode === 'production'
-    })
+      minimize: argv.mode === 'production',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
       },
       {
         test: /\.tsx?$/,
@@ -30,37 +30,33 @@ module.exports = (env, argv) => ({
         exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
-        }
+        },
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
-        }
+          name: '[name].[ext]?[hash]',
+        },
       },
       {
         test: /\.less$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'less-loader'
-        ]
-      }
-    ]
+        use: ['vue-style-loader', 'css-loader', 'less-loader'],
+      },
+    ],
   },
   resolve: {
     extensions: ['.ts', '.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      vue$: 'vue/dist/vue.esm.js',
+    },
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
   },
   performance: {
-    hints: false
+    hints: false,
   },
   devtool: argv.mode === 'production' ? '#source-map' : 'inline-source-map',
   optimization: {
@@ -72,10 +68,10 @@ module.exports = (env, argv) => ({
         uglifyOptions: {
           compress: false,
           ecma: 6,
-          mangle: true
+          mangle: true,
         },
-        sourceMap: true
-      })
-    ]
-  }
+        sourceMap: true,
+      }),
+    ],
+  },
 });

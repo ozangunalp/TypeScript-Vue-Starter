@@ -1,27 +1,30 @@
-import QuestionSet from "../../types/QuestionSet";
-import {Module, MutationTree} from "vuex";
-import RootState from "../../types/RootState";
-import {Mutation, namespace, State} from "vuex-class";
+import { Module, MutationTree } from 'vuex';
+import { Mutation, namespace, State } from 'vuex-class';
 
-export const QuestionSetMutation = namespace('questionset', Mutation);
-export const QuestionSetState = namespace('questionset', State);
+import QuestionSet from '../../types/QuestionSet';
+import RootState from '../../types/RootState';
 
-export const state : QuestionSet = {
-  acceptSwitching: undefined,
-  nameSouscripteur: "World",
-  surnameSouscripteur: undefined
-};
+const namespaceName = 'questionset';
 
-export const mutations : MutationTree<QuestionSet> = {
+export const QuestionSetMutation = namespace(namespaceName, Mutation);
+export const QuestionSetState = namespace(namespaceName, State);
+
+export const mutations: MutationTree<QuestionSet> = {
   updateNameSouscripteur(state: QuestionSet, name: string) {
     state.nameSouscripteur = name;
-  }
+  },
 };
 
-export const questionset : Module<QuestionSet, RootState> = {
+export const questionSetState: QuestionSet = {
+  acceptSwitching: undefined,
+  nameSouscripteur: 'World',
+  surnameSouscripteur: undefined,
+};
+
+export const questionsetModule: Module<QuestionSet, RootState> = {
   namespaced: true,
-  state,
-  mutations
+  state: questionSetState,
+  mutations,
 };
 
-export default questionset;
+export default questionsetModule;
