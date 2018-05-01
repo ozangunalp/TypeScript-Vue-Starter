@@ -1,3 +1,3 @@
 export default interface RootState {
-  version: string;
+  version: string
 }

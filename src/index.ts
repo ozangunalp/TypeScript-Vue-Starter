@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import HelloComponent from './components/Hello.vue';
-import HelloDecoratorComponent from './components/HelloDecorator.vue';
-import NameComponent from './components/Name.vue';
-import store from './store/root';
+import Vue from 'vue'
+import HelloComponent from './components/Hello.vue'
+import HelloDecoratorComponent from './components/HelloDecorator.vue'
+import NameComponent from './components/Name.vue'
+import store from './store/root'
 // import 'es6-promise/auto'
 
 const v = new Vue({
@@ -23,4 +23,4 @@ const v = new Vue({
     HelloComponent,
     HelloDecoratorComponent,
   },
-});
+})

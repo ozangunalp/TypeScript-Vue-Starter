@@ -1,8 +1,8 @@
-const { VueLoaderPlugin } = require('vue-loader');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = (env, argv) => ({
   entry: './src/index.ts',
@@ -21,8 +21,17 @@ module.exports = (env, argv) => ({
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.tsx?$/,
+        loader: 'tslint-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          esModule: true,
+        },
       },
       {
         test: /\.tsx?$/,
@@ -31,6 +40,11 @@ module.exports = (env, argv) => ({
         options: {
           appendTsSuffixTo: [/\.vue$/],
         },
+      },
+      {
+        resourceQuery: /vue&type=script&lang=ts/,
+        loader: 'tslint-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -74,4 +88,4 @@ module.exports = (env, argv) => ({
       }),
     ],
   },
-});
+})

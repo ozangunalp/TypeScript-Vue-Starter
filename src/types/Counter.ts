@@ -1,4 +1,4 @@
 export default interface Counter {
-  count: number;
-  decrementCount: number;
+  count: number
+  decrementCount: number
 }

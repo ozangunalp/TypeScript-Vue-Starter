@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import RootState from '../types/RootState';
-import counter from './modules/counter';
-import questionset from './modules/questionset';
+import RootState from '../types/RootState'
+import counter from './modules/counter'
+import questionset from './modules/questionset'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store<RootState>({
   state: {
@@ -15,4 +15,4 @@ export default new Vuex.Store<RootState>({
     counter,
     questionset,
   },
-});
+})

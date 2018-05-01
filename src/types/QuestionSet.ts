@@ -1,5 +1,5 @@
 export default interface QuestionSet {
-  acceptSwitching?: boolean;
-  nameSouscripteur?: string;
-  surnameSouscripteur?: string;
+  acceptSwitching?: boolean
+  nameSouscripteur?: string
+  surnameSouscripteur?: string
 }

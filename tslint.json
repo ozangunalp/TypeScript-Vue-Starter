@@ -1,8 +1,9 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "extends": ["tslint:recommended", "tslint-config-standard", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
+    "member-access": false,
     "quotemark": [true, "single"],
     "indent": [true],
     "interface-name": [false],

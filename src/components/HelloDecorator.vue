@@ -9,33 +9,34 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { QuestionSetState } from '../store/modules/questionset';
-import { CounterMutation, CounterState } from '../store/modules/counter';
+import { Component, Vue } from 'vue-property-decorator'
+
+import { CounterMutation, CounterState } from '../store/modules/counter'
+import { QuestionSetState } from '../store/modules/questionset'
 
 @Component
 export default class HelloDecorator extends Vue {
-  @QuestionSetState nameSouscripteur!: string;
+  @QuestionSetState nameSouscripteur!: string
 
-  @CounterState count!: number;
+  @CounterState count!: number
 
-  @CounterMutation increment!: () => void;
+  @CounterMutation increment!: () => void
 
-  @CounterMutation decrement!: () => void;
+  @CounterMutation decrement!: () => void
 
-  @CounterMutation decrementCountIncrement!: () => void;
+  @CounterMutation decrementCountIncrement!: () => void
 
   get exclamationMarks(): string {
-    return Array(this.count + 1).join('!');
+    return Array(this.count + 1).join('!')
   }
 
   get souscripteurName(): string {
-    return this.nameSouscripteur;
+    return this.nameSouscripteur
   }
 
   decrementCounters() {
-    this.decrement();
-    this.decrementCountIncrement();
+    this.decrement()
+    this.decrementCountIncrement()
   }
 }
 </script>

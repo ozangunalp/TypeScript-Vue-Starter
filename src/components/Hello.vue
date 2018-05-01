@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from 'vue'
 
 export default Vue.extend({
   props: ['initialEnthusiasm'],
@@ -19,23 +19,23 @@ export default Vue.extend({
   },
   methods: {
     increment() {
-      this.enthusiasm++;
+      this.enthusiasm++
     },
     decrement() {
       if (this.enthusiasm > 1) {
-        this.enthusiasm--;
+        this.enthusiasm--
       }
     },
   },
   computed: {
     exclamationMarks(): string {
-      return Array(this.enthusiasm + 1).join('!');
+      return Array(this.enthusiasm + 1).join('!')
     },
     name(): string {
-      return this.$store.state.questionset.nameSouscripteur;
+      return this.$store.state.questionset.nameSouscripteur
     },
   },
-});
+})
 </script>
 
 <style scoped lang="less">
